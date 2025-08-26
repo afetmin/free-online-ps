@@ -4,14 +4,11 @@ Online image editor lets you create and edit images using HTML5 technologies. No
 
 onlineps operates directly in the browser. You can create images by pasting from the clipboard (ctrl+v) or uploading from the computer (_using menu or drag & drop_). Nothing will be sent to any server. Everything stays in your browser. 
 
-## URL:
-**https://viliusle.github.io/miniPaint/**
 
 ## Preview:
 ![onlineps](https://raw.githubusercontent.com/viliusle/miniPaint/master/images/preview.gif)
 (generated using miniPaint)
 
-**Change log:** [/miniPaint/releases](https://github.com/viliusle/miniPaint/releases)
 
 ## Browser Support
 - Chrome
@@ -37,24 +34,4 @@ onlineps operates directly in the browser. You can create images by pasting from
 
 **Help**: keyboard shortcuts, translation.
 
-## Embed
-To embed this app on another page, use the following HTML code:
 
-    <iframe style="box-sizing:border-box; width:100%; height:100vh;" id="miniPaint" src="https://viliusle.github.io/miniPaint/" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-## Build instructions
-See [Wiki > Build instructions](https://github.com/viliusle/miniPaint/wiki/Build-instructions)
-
-## Wiki
-See [Wiki](https://github.com/viliusle/miniPaint/wiki)
-
-## Contributors
-<a align="center" href="https://github.com/viliusle/miniPaint/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=viliusle/miniPaint" />
-</a>
-
-## License
-MIT License
-
-## Support
-Please use the GitHub issues for support, feature requests and bug reports, or contact us by sending an email to www.viliusl@gmail.com.
