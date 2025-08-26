@@ -1,31 +1,112 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="x-ua-compatible" content="IE=edge" />
-	<title>miniPaint - image editor</title>
-	<meta name="description" content="miniPaint is free online image editor using HTML5. Edit, adjust your images, add effects online in your browser, without installing anything..." />
-	<meta name="keywords" content="photo, image, picture, transparent, layers, free, edit, html5, canvas, javascript, online, photoshop, gimp, effects, sharpen, blur, magic eraser tool, clone tool, rotate, resize, photoshop online, online tools, tilt shift, sprites, keypoints" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0" />
-	<link rel="icon" sizes="192x192" href="images/favicon.png">
-	<!-- <link rel="manifest" href="dist/manifest.json"> -->
-	<!-- Google -->
-	<meta itemprop="name" content="miniPaint" />
-	<meta itemprop="description" content="miniPaint is free online image editor using HTML5. Edit, adjust your images, add effects online in your browser, without installing anything..." />
-	<meta itemprop="image" content="https://viliusle.github.io/miniPaint/images/preview.jpg" />
+	<meta charset="utf-8" />
+	<title>Painter - free online ps</title>
+	
+	<!-- Primary Meta Tags -->
+	<meta name="title" content="Painter - Free Online Photoshop Alternative" />
+	<meta name="description" content="Painter is a powerful free online image editor using HTML5. Simple and easy to use, edit your images directly in your browser without installing anything. No data storage - your privacy is protected. Features layers, filters, tools and more." />
+	<meta name="keywords" content="photo editor, image editor, picture editor, transparent background, layers, free, edit, html5, canvas, javascript, online, photoshop alternative, gimp alternative, effects, sharpen, blur, magic eraser tool, clone tool, rotate, resize, online tools, tilt shift, sprites, keypoints, web based editor" />
+	<meta name="author" content="ranxiu" />
+	<meta name="robots" content="index, follow" />
+	<meta name="language" content="English" />
+	<meta name="revisit-after" content="7 days" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	
+	<!-- Canonical URL -->
+	<link rel="canonical" href="https://afetmin.github.io/free-online-ps/" />
+	
+	<!-- Favicon and Icons -->
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/manifest/192x192.png">
+	<link rel="mask-icon" href="images/favicon.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#666d6f">
+	
+	<!-- Apple Mobile Web App -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default">
+	<meta name="apple-mobile-web-app-title" content="Painter">
+	
+	<!-- Security -->
+	<meta http-equiv="X-Content-Type-Options" content="nosniff">
+	<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+	<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+	<meta name="referrer" content="strict-origin-when-cross-origin">
+	
+	<!-- DNS Prefetch and Preconnect -->
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://afetmin.github.io/free-online-ps/" />
+	<meta property="og:title" content="Painter - Free Online Photoshop Alternative" />
+	<meta property="og:description" content="Painter is a powerful free online image editor using HTML5. Simple and easy to use, edit your images directly in your browser without installing anything. No data storage - your privacy is protected." />
+	<meta property="og:image" content="https://afetmin.github.io/free-online-ps/images/preview.jpg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:site_name" content="Painter" />
+	<meta property="og:locale" content="en_US" />
+	
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="miniPaint" />
-	<meta name="twitter:description" content="miniPaint is free online image editor using HTML5. Edit, adjust your images, add effects online in your browser, without installing anything..." />
-	<meta name="twitter:image" content="https://viliusle.github.io/miniPaint/images/preview.jpg" />
-	<meta name="twitter:image:alt" content="miniPaint is free online image editor using HTML5. Edit, adjust your images, add effects online in your browser, without installing anything..." />
-	<!-- Facebook, Pinterest -->
-	<meta property="og:title" content="miniPaint" />
-	<meta property="og:type" content="article" />
-	<meta property="og:url" content="https://viliusle.github.io/miniPaint/" />
-	<meta property="og:image" content="https://viliusle.github.io/miniPaint/images/preview.jpg" />
-	<meta property="og:description" content="miniPaint is free online image editor using HTML5. Edit, adjust your images, add effects online in your browser, without installing anything..." />
-	<meta property="og:site_name" content="miniPaint" />
+	<meta name="twitter:url" content="https://afetmin.github.io/free-online-ps/" />
+	<meta name="twitter:title" content="Painter - Free Online Photoshop Alternative" />
+	<meta name="twitter:description" content="Painter is a powerful free online image editor using HTML5. Simple and easy to use, edit your images directly in your browser without installing anything. No data storage - your privacy is protected." />
+	<meta name="twitter:image" content="https://afetmin.github.io/free-online-ps/images/preview.jpg" />
+	<meta name="twitter:image:alt" content="Painter online image editor interface" />
+	
+	<!-- Google Schema.org -->
+	<meta itemprop="name" content="Painter" />
+	<meta itemprop="description" content="Painter is a powerful free online image editor using HTML5. Simple and easy to use, edit your images directly in your browser without installing anything. No data storage - your privacy is protected." />
+	<meta itemprop="image" content="https://afetmin.github.io/free-online-ps/images/preview.jpg" />
+	
+	<!-- JSON-LD Structured Data -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "WebApplication",
+		"name": "Painter",
+		"alternateName": "Painter - Free Online PS",
+		"description": "Free online image editor using HTML5. Simple and easy to use, edit your images directly in your browser without installing anything. No data storage - your privacy is protected.",
+		"url": "https://afetmin.github.io/free-online-ps/",
+		"applicationCategory": "MultimediaApplication",
+		"operatingSystem": "Web Browser",
+		"offers": {
+			"@type": "Offer",
+			"price": "0",
+			"priceCurrency": "USD"
+		},
+		"author": {
+			"@type": "Person",
+			"name": "ranxiu"
+		},
+		"creator": {
+			"@type": "Person",
+			"name": "ranxiu"
+		},
+		"softwareVersion": "4.14.2",
+		"featureList": [
+			"Image editing",
+			"Layer support",
+			"Filters and effects",
+			"Drawing tools",
+			"Text tools",
+			"Shape tools",
+			"Magic eraser",
+			"Clone tool",
+			"Transparent backgrounds",
+			"Multiple file formats"
+		],
+		"screenshot": "https://afetmin.github.io/free-online-ps/images/preview.jpg",
+		"thumbnailUrl": "https://afetmin.github.io/free-online-ps/images/preview.jpg"
+	}
+	</script>
 	
 	<script src="dist/bundle.js"></script>
 </head>
@@ -35,7 +116,7 @@
 		<nav aria-label="Main Menu" class="main_menu" id="main_menu"></nav>
 		
 		<div class="submenu">
-			<a class="logo" href="#">miniPaint</a>
+			<a class="logo" href="#">Painter</a>
 			<div class="block attributes" id="action_attributes"></div>
 			<button class="undo_button" id="undo_button" type="button">
 				<span class="sr_only">Undo</span>
