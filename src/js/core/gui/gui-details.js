@@ -1,5 +1,5 @@
 /*
- * miniPaint - https://github.com/viliusle/miniPaint
+ * miniPaint - https://github.com/afetmin/free-online-ps
  * author: Vilius L.
  */
 
@@ -150,7 +150,7 @@ class GUI_details_class {
 			document.getElementById('text_detail_params').style.display = 'block';
 			document.getElementById('detail_color').closest('.row').style.display = 'none';
 		}
-		else{
+		else {
 			document.getElementById('text_detail_params').style.display = 'none';
 
 			if (config.layer != undefined && (config.layer.color === null || config.layer.type == 'image')) {
@@ -192,7 +192,7 @@ class GUI_details_class {
 			else {
 				var value = layer[key];
 
-				if(key == 'x' || key == 'y' || key == 'width' || key == 'height'){
+				if (key == 'x' || key == 'y' || key == 'width' || key == 'height') {
 					//convert units
 					value = this.Helper.get_user_unit(value, units, resolution);
 				}
@@ -209,7 +209,7 @@ class GUI_details_class {
 		if (events) {
 			//events
 			var target = document.getElementById('detail_' + key);
-			if(target == undefined){
+			if (target == undefined) {
 				console.log('Error: missing details event target ' + 'detail_' + key);
 				return;
 			}
@@ -218,7 +218,7 @@ class GUI_details_class {
 				focus_value = parseFloat(this.value);
 			});
 			target.addEventListener('blur', function (e) {
-				if(key == 'x' || key == 'y' || key == 'width' || key == 'height'){
+				if (key == 'x' || key == 'y' || key == 'width' || key == 'height') {
 					//convert units
 					var value = _this.Helper.get_internal_unit(this.value, units, resolution);
 				}
@@ -238,23 +238,23 @@ class GUI_details_class {
 				}
 			});
 			target.addEventListener('change', function (e) {
-				if(key == 'x' || key == 'y' || key == 'width' || key == 'height'){
+				if (key == 'x' || key == 'y' || key == 'width' || key == 'height') {
 					//convert units
 					var value = _this.Helper.get_internal_unit(this.value, units, resolution);
 				}
 				else {
 					var value = parseInt(this.value);
 				}
-				
-				if(this.min != undefined && this.min != '' && value < this.min){
+
+				if (this.min != undefined && this.min != '' && value < this.min) {
 					document.getElementById('detail_opacity').value = value;
 					value = this.min;
 				}
-				if(this.max != undefined && this.min != '' && value > this.max){
+				if (this.max != undefined && this.min != '' && value > this.max) {
 					document.getElementById('detail_opacity').value = value;
 					value = this.max;
 				}
-				
+
 				config.layer[key] = value;
 				config.need_render = true;
 			});
@@ -264,23 +264,23 @@ class GUI_details_class {
 					return;
 				}
 
-				if(key == 'x' || key == 'y' || key == 'width' || key == 'height'){
+				if (key == 'x' || key == 'y' || key == 'width' || key == 'height') {
 					//convert units
 					var value = _this.Helper.get_internal_unit(this.value, units, resolution);
 				}
 				else {
 					var value = parseInt(this.value);
 				}
-				
-				if(this.min != undefined && this.min != '' && value < this.min){
+
+				if (this.min != undefined && this.min != '' && value < this.min) {
 					document.getElementById('detail_opacity').value = value;
 					value = this.min;
 				}
-				if(this.max != undefined && this.min != '' && value > this.max){
+				if (this.max != undefined && this.min != '' && value > this.max) {
 					document.getElementById('detail_opacity').value = value;
 					value = this.max;
 				}
-				
+
 				config.layer[key] = value;
 				config.need_render = true;
 			});
@@ -299,11 +299,11 @@ class GUI_details_class {
 			else {
 				if (typeof layer.params[key] == 'boolean') {
 					//boolean
-					if(target.tagName == 'BUTTON'){
-						if(layer.params[key]){
+					if (target.tagName == 'BUTTON') {
+						if (layer.params[key]) {
 							target.classList.add('active');
 						}
-						else{
+						else {
 							target.classList.remove('active');
 						}
 					}
@@ -356,7 +356,7 @@ class GUI_details_class {
 		}
 	}
 
-	render_general_select_param(key, events){
+	render_general_select_param(key, events) {
 		var layer = config.layer;
 
 		if (layer != undefined) {
@@ -367,7 +367,7 @@ class GUI_details_class {
 				target.disabled = true;
 			}
 			else {
-				if(typeof layer.params[key] == 'object')
+				if (typeof layer.params[key] == 'object')
 					target.value = layer.params[key].value; //legacy
 				else
 					target.value = layer.params[key];
@@ -542,13 +542,13 @@ class GUI_details_class {
 		var target_id = "parameters_container";
 		const itemContainer = document.getElementById(target_id);
 
-		if(this.layer_details_active == true){
+		if (this.layer_details_active == true) {
 			return;
 		}
 
 		itemContainer.innerHTML = "";
 
-		if(!config.layer || typeof config.layer.params == 'undefined' || config.layer.type == 'text') {
+		if (!config.layer || typeof config.layer.params == 'undefined' || config.layer.type == 'text') {
 			return;
 		}
 
@@ -556,10 +556,10 @@ class GUI_details_class {
 		var params_config = null;
 		for (var i in config.TOOLS) {
 			if (config.TOOLS[i].name == config.layer.type) {
-				params_config =  config.TOOLS[i];
+				params_config = config.TOOLS[i];
 			}
 		}
-		if(params_config == null){
+		if (params_config == null) {
 			return;
 		}
 
@@ -567,10 +567,10 @@ class GUI_details_class {
 			var item = params_config.attributes[k];
 
 			//hide some fields, in future name should start with underscore
-			if(params_config.name == 'rectangle' && k == 'square'
+			if (params_config.name == 'rectangle' && k == 'square'
 				|| params_config.name == 'ellipse' && k == 'circle'
 				|| params_config.name == 'pencil' && k == 'pressure'
-				|| params_config.name == 'pencil' && k == 'size'){
+				|| params_config.name == 'pencil' && k == 'size') {
 				continue;
 			}
 
@@ -688,9 +688,9 @@ class GUI_details_class {
 				elementInput.type = 'color';
 				let focus_value = null;
 				const $colorInput = $(elementInput).uiColorInput({
-						id: k,
-						value: item
-					})
+					id: k,
+					value: item
+				})
 					.on('change', () => {
 						let layer = config.layer;
 						let key = $colorInput.uiColorInput('get_id');

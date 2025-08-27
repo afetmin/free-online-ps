@@ -1,5 +1,5 @@
 /*
- * miniPaint - https://github.com/viliusle/miniPaint
+ * miniPaint - https://github.com/afetmin/free-online-ps
  * author: Vilius L.
  */
 
@@ -70,14 +70,14 @@ class GUI_information_class {
 		}, false);
 	}
 
-	update_units(){
+	update_units() {
 		this.units = this.Tools_settings.get_setting('default_units');
 		this.resolution = this.Tools_settings.get_setting('resolution');
 		this.show_size(true);
 	}
 
 	show_size(force) {
-		if(force == undefined && this.last_width == config.WIDTH && this.last_height == config.HEIGHT) {
+		if (force == undefined && this.last_width == config.WIDTH && this.last_height == config.HEIGHT) {
 			return;
 		}
 

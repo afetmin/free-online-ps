@@ -1,5 +1,5 @@
 /*
- * miniPaint - https://github.com/viliusle/miniPaint
+ * miniPaint - https://github.com/afetmin/free-online-ps
  * author: Vilius L.
  */
 
@@ -61,7 +61,7 @@ class GUI_tools_class {
 				};
 
 				//init events once
-				if(typeof object.load != "undefined") {
+				if (typeof object.load != "undefined") {
 					object.load();
 				}
 			}
@@ -78,7 +78,7 @@ class GUI_tools_class {
 		var target_id = "tools_container";
 		var _this = this;
 		var saved_tool = this.Helper.getCookie('active_tool');
-		if(saved_tool == 'media' || saved_tool == 'shape') {
+		if (saved_tool == 'media' || saved_tool == 'shape') {
 			//bringing this back by default gives bad UX
 			saved_tool = null
 		}
@@ -89,7 +89,7 @@ class GUI_tools_class {
 		//left menu
 		for (var i in config.TOOLS) {
 			var item = config.TOOLS[i];
-			if(item.title)
+			if (item.title)
 				var title = item.title;
 			else
 				var title = this.Helper.ucfirst(item.name).replace(/_/, ' ');
@@ -103,7 +103,7 @@ class GUI_tools_class {
 			else {
 				itemDom.className = 'item trn ' + item.name;
 			}
-			if(item.visible === false){
+			if (item.visible === false) {
 				itemDom.style.display = 'none';
 			}
 
@@ -201,7 +201,7 @@ class GUI_tools_class {
 					element.classList.add('input_height');
 					element.innerHTML = icon;
 					element.title = k;
-					element.innerHTML = '<img style="width:16px;height:16px;" alt="'+title+'" src="images/icons/'+icon+'" />';
+					element.innerHTML = '<img style="width:16px;height:16px;" alt="' + title + '" src="images/icons/' + icon + '" />';
 				} else {
 					element.classList.add('ui_toggle_button');
 				}

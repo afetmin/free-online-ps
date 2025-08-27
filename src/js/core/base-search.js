@@ -1,5 +1,5 @@
 /*
- * miniPaint - https://github.com/viliusle/miniPaint
+ * miniPaint - https://github.com/afetmin/free-online-ps
  * author: Vilius L.
  */
 
@@ -33,7 +33,7 @@ class Base_search_class {
 			}
 
 			var code = event.key;
-			if (code == "F3" || ( (event.ctrlKey == true || event.metaKey) && code == "f")) {
+			if (code == "F3" || ((event.ctrlKey == true || event.metaKey) && code == "f")) {
 				//open
 				this.search();
 				event.preventDefault();
@@ -41,7 +41,7 @@ class Base_search_class {
 		}, false);
 
 		document.addEventListener('input', (event) => {
-			if(document.querySelector('#pop_data_search') == null){
+			if (document.querySelector('#pop_data_search') == null) {
 				return;
 			}
 
@@ -49,7 +49,7 @@ class Base_search_class {
 			node.innerHTML = '';
 
 			var query = event.target.value;
-			if(query == ''){
+			if (query == '') {
 				return;
 			}
 
@@ -60,23 +60,23 @@ class Base_search_class {
 			});
 
 			//show
-			for(var i = 0; i < results.length; i++) {
+			for (var i = 0; i < results.length; i++) {
 				var item = results[i];
 
-				var className = "search-result n" + (i+1);
-				if(i == 0){
+				var className = "search-result n" + (i + 1);
+				if (i == 0) {
 					className += " active";
 				}
 
-				node.innerHTML += "<div class='"+className+"' data-key='"+item.obj.key+"'>"
+				node.innerHTML += "<div class='" + className + "' data-key='" + item.obj.key + "'>"
 					+ fuzzysort.highlight(item[0]) + "</div>";
 			}
 		}, false);
 
 		//allow to select with arrow keys
 		document.addEventListener('keydown', function (e) {
-			if(document.querySelector('#global_search_results') == null
-				|| document.querySelector('.search-result') == null){
+			if (document.querySelector('#global_search_results') == null
+				|| document.querySelector('.search-result') == null) {
 				return;
 			}
 			var k = e.key;
@@ -84,11 +84,11 @@ class Base_search_class {
 			if (k == "ArrowUp") {
 				var target = document.querySelector('.search-result.active');
 				var index = Array.from(target.parentNode.children).indexOf(target);
-				if(index > 0){
+				if (index > 0) {
 					index--;
 				}
 				target.classList.remove('active');
-				var target2 =document.querySelector('#global_search_results').childNodes[index];
+				var target2 = document.querySelector('#global_search_results').childNodes[index];
 				target2.classList.add('active');
 				e.preventDefault();
 			}
@@ -96,7 +96,7 @@ class Base_search_class {
 				var target = document.querySelector('.search-result.active');
 				var index = Array.from(target.parentNode.children).indexOf(target);
 				var total = target.parentNode.childElementCount;
-				if(index < total - 1){
+				if (index < total - 1) {
 					index++;
 				}
 				target.classList.remove('active');
@@ -112,9 +112,9 @@ class Base_search_class {
 		var _this = this;
 
 		//init DB
-		if(this.db === null) {
+		if (this.db === null) {
 			this.db = Object.keys(this.Base_gui.modules);
-			for(var i in this.db){
+			for (var i in this.db) {
 				this.db[i] = {
 					key: this.db[i],
 					title: this.db[i].replace(/_/i, ' '),
@@ -125,7 +125,7 @@ class Base_search_class {
 		var settings = {
 			title: 'Search',
 			params: [
-				{name: "search", title: "Search:", value: ""},
+				{ name: "search", title: "Search:", value: "" },
 			],
 			on_load: function (params, popup) {
 				var node = document.createElement("div");
@@ -136,7 +136,7 @@ class Base_search_class {
 			on_finish: function (params) {
 				//execute
 				var target = document.querySelector('.search-result.active');
-				if(target){
+				if (target) {
 					//execute
 					var key = target.dataset.key;
 					var class_object = this.Base_gui.modules[key];
@@ -153,7 +153,7 @@ class Base_search_class {
 		document.getElementById("pop_data_search").select();
 	}
 
-	get_function_from_path(path){
+	get_function_from_path(path) {
 		var parts = path.split("/");
 		var result = parts[parts.length - 1];
 		result = result.replace(/-/, '_');

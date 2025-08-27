@@ -658,7 +658,7 @@ const menuDefinition = [
 			},
 			{
 				name: 'Report Issues',
-				href: 'https://github.com/viliusle/miniPaint/issues'
+				href: 'https://github.com/afetmin/free-online-ps/issues'
 			},
 			{
 				divider: true

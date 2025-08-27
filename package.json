@@ -1,5 +1,5 @@
 {
-  "name": "miniPaint",
+  "name": "Painter",
   "version": "4.14.2",
   "author": "Vilius L.",
   "description": "Online graphics editing tool lets create, edit images using HTML5 technologies.",
@@ -17,9 +17,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/viliusle/miniPaint"
+    "url": "https://github.com/afetmin/free-online-ps"
   },
-  "homepage": "https://github.com/viliusle/miniPaint",
+  "homepage": "https://github.com/afetmin/free-online-ps",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.14.5",

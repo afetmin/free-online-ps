@@ -1,5 +1,5 @@
 /*
- * miniPaint - https://github.com/viliusle/miniPaint
+ * miniPaint - https://github.com/afetmin/free-online-ps
  * author: Vilius L.
  */
 
@@ -38,9 +38,9 @@ class GUI_preview_class {
 		document.getElementById('toggle_preview').innerHTML = template;
 
 		// preview mini window size on right sidebar
-		this.PREVIEW_SIZE = {w: 176, h: 100};
+		this.PREVIEW_SIZE = { w: 176, h: 100 };
 
-		this.canvas_offset = {x: 0, y: 0};
+		this.canvas_offset = { x: 0, y: 0 };
 
 		this.zoom_data = {
 			x: 0,
@@ -122,12 +122,12 @@ class GUI_preview_class {
 			config.need_render = true;
 		}, false);
 		document.getElementById("canvas_preview").addEventListener('mousedown', function (e) {
-			if(is_touch)
+			if (is_touch)
 				return;
 			_this.set_zoom_position(e);
 		}, false);
 		document.getElementById("canvas_preview").addEventListener('mousemove', function (e) {
-			if(is_touch)
+			if (is_touch)
 				return;
 			if (_this.mouse_pressed == false)
 				return;
@@ -202,7 +202,7 @@ class GUI_preview_class {
 			Math.round(mini_rect_y) + 0.5,
 			mini_rect_w,
 			mini_rect_h
-			);
+		);
 		this.canvas_preview.fillStyle = "rgba(0, 255, 0, 0.3)";
 		this.canvas_preview.strokeStyle = "#00ff00";
 		this.canvas_preview.fill();
@@ -331,7 +331,7 @@ class GUI_preview_class {
 
 		config.need_render = true;
 	}
-	
+
 	/**
 	 * moves visible area to new position.
 	 * 
@@ -339,14 +339,14 @@ class GUI_preview_class {
 	 * @param {int} y global offset
 	 */
 	zoom_to_position(x, y) {
-		var zoom_data = this.zoom_data;		
+		var zoom_data = this.zoom_data;
 		zoom_data.move_pos = {};
 		zoom_data.move_pos.x = parseInt(x);
 		zoom_data.move_pos.y = parseInt(y);
-		
+
 		config.need_render = true;
 	}
-	
+
 }
 
 export default GUI_preview_class;

@@ -1,5 +1,5 @@
 /*
- * miniPaint - https://github.com/viliusle/miniPaint
+ * miniPaint - https://github.com/afetmin/free-online-ps
  * author: Vilius L.
  */
 
@@ -269,7 +269,7 @@ class GUI_colors_class {
 					this.sections.swatchesPlaceholder.parentNode.removeChild(this.sections.swatchesPlaceholder);
 				} else {
 					this.sections.swatches[0].parentNode.insertBefore(this.sections.swatchesPlaceholder, this.sections.swatches[0].nextSibling);
-					this.sections.swatches[0].parentNode.removeChild(this.sections.swatches[0]);	
+					this.sections.swatches[0].parentNode.removeChild(this.sections.swatches[0]);
 				}
 				Helper.setCookie('toggle_color_swatches', isPressed ? 1 : 0);
 			});
@@ -289,7 +289,7 @@ class GUI_colors_class {
 					this.sections.pickerPlaceholder.parentNode.removeChild(this.sections.pickerPlaceholder);
 				} else {
 					this.sections.picker[0].parentNode.insertBefore(this.sections.pickerPlaceholder, this.sections.picker[0].nextSibling);
-					this.sections.picker[0].parentNode.removeChild(this.sections.picker[0]);	
+					this.sections.picker[0].parentNode.removeChild(this.sections.picker[0]);
 				}
 				Helper.setCookie('toggle_color_picker', isPressed ? 1 : 0);
 			});
@@ -313,7 +313,7 @@ class GUI_colors_class {
 					this.sections.channelsPlaceholder.parentNode.removeChild(this.sections.channelsPlaceholder);
 				} else {
 					this.sections.channels[0].parentNode.insertBefore(this.sections.channelsPlaceholder, this.sections.channels[0].nextSibling);
-					this.sections.channels[0].parentNode.removeChild(this.sections.channels[0]);	
+					this.sections.channels[0].parentNode.removeChild(this.sections.channels[0]);
 				}
 				Helper.setCookie('toggle_color_channels', isPressed ? 1 : 0);
 			});
@@ -365,7 +365,7 @@ class GUI_colors_class {
 					this.inputs.hex[0].setCustomValidity('');
 				}
 			});
-		
+
 		// Initialize the color sliders
 		const sliderInputs = [
 			...Object.entries(this.inputs.rgb),
@@ -531,12 +531,12 @@ class GUI_colors_class {
 			rangeMin[rgbKey] = 0;
 			rangeMax[rgbKey] = 255;
 			this.inputs.rgb[rgbKey].range.uiRange('set_background',
-				`linear-gradient(to right, ${ Helper.rgbToHex(rangeMin.r, rangeMin.g, rangeMin.b) }, ${ Helper.rgbToHex(rangeMax.r, rangeMax.g, rangeMax.b) })`
+				`linear-gradient(to right, ${Helper.rgbToHex(rangeMin.r, rangeMin.g, rangeMin.b)}, ${Helper.rgbToHex(rangeMax.r, rangeMax.g, rangeMax.b)})`
 			);
 		}
 		// A
 		this.inputs.rgb.a.range.uiRange('set_background',
-			`linear-gradient(to right, transparent, ${ COLOR })`
+			`linear-gradient(to right, transparent, ${COLOR})`
 		);
 		// HSV
 		const hsv = options.hsv || Helper.rgbToHsv(rgb.r, rgb.g, rgb.b);
@@ -545,20 +545,13 @@ class GUI_colors_class {
 		const hsl = options.hsl || Helper.rgbToHsl(rgb.r, rgb.g, rgb.b);
 		// HSL - H
 		this.inputs.hsl.h.range.uiRange('set_background',
-			`linear-gradient(to right, ${
-				Helper.hex_set_hsl('#ff0000', { s: hsl.s, l: hsl.l })
-			} 0%, ${
-				Helper.hex_set_hsl('#ffff00', { s: hsl.s, l: hsl.l })
-			} 17%, ${
-				Helper.hex_set_hsl('#00ff00', { s: hsl.s, l: hsl.l })
-			} 33%, ${
-				Helper.hex_set_hsl('#00ffff', { s: hsl.s, l: hsl.l })
-			} 50%, ${
-				Helper.hex_set_hsl('#0000ff', { s: hsl.s, l: hsl.l })
-			} 67%, ${
-				Helper.hex_set_hsl('#ff00ff', { s: hsl.s, l: hsl.l })
-			} 83%, ${
-				Helper.hex_set_hsl('#ff0000', { s: hsl.s, l: hsl.l })
+			`linear-gradient(to right, ${Helper.hex_set_hsl('#ff0000', { s: hsl.s, l: hsl.l })
+			} 0%, ${Helper.hex_set_hsl('#ffff00', { s: hsl.s, l: hsl.l })
+			} 17%, ${Helper.hex_set_hsl('#00ff00', { s: hsl.s, l: hsl.l })
+			} 33%, ${Helper.hex_set_hsl('#00ffff', { s: hsl.s, l: hsl.l })
+			} 50%, ${Helper.hex_set_hsl('#0000ff', { s: hsl.s, l: hsl.l })
+			} 67%, ${Helper.hex_set_hsl('#ff00ff', { s: hsl.s, l: hsl.l })
+			} 83%, ${Helper.hex_set_hsl('#ff0000', { s: hsl.s, l: hsl.l })
 			} 100%)`
 		);
 		// HSL - S
@@ -567,13 +560,13 @@ class GUI_colors_class {
 		rangeMin.s = 0;
 		rangeMax.s = 1;
 		this.inputs.hsl.s.range.uiRange('set_background',
-			`linear-gradient(to right, ${ Helper.hslToHex(rangeMin.h, rangeMin.s, rangeMin.l) }, ${ Helper.hslToHex(rangeMax.h, rangeMax.s, rangeMax.l) })`
+			`linear-gradient(to right, ${Helper.hslToHex(rangeMin.h, rangeMin.s, rangeMin.l)}, ${Helper.hslToHex(rangeMax.h, rangeMax.s, rangeMax.l)})`
 		);
 		// HSL - L
 		let rangeMid = JSON.parse(JSON.stringify(hsl));
 		rangeMid.l = 0.5;
 		this.inputs.hsl.l.range.uiRange('set_background',
-			`linear-gradient(to right, #000000 0%, ${ Helper.hslToHex(rangeMid.h, rangeMid.s, rangeMid.l) } 50%, #ffffff 100%)`
+			`linear-gradient(to right, #000000 0%, ${Helper.hslToHex(rangeMid.h, rangeMid.s, rangeMid.l)} 50%, #ffffff 100%)`
 		);
 
 		// Store swatch values

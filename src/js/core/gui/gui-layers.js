@@ -1,5 +1,5 @@
 /*
- * miniPaint - https://github.com/viliusle/miniPaint
+ * miniPaint - https://github.com/afetmin/free-online-ps
  * author: Vilius L.
  */
 
@@ -110,7 +110,7 @@ class GUI_layers_class {
 				var effects = _this.Effects_browser.get_effects_list();
 				var key = target.dataset.filter.toLowerCase();
 				for (var i in effects) {
-					if(effects[i].title.toLowerCase() == key){
+					if (effects[i].title.toLowerCase() == key) {
 						_this.Base_layers.select(target.dataset.pid);
 						var function_name = _this.Effects_browser.get_function_from_path(key);
 						effects[i].object[function_name](target.dataset.id);
@@ -136,20 +136,20 @@ class GUI_layers_class {
 		var target_id = 'layers';
 		var layers = config.layers.concat().sort(
 			//sort function
-				(a, b) => b.order - a.order
-			);
+			(a, b) => b.order - a.order
+		);
 
 		document.getElementById(target_id).innerHTML = '';
 		var html = '';
-		
+
 		if (config.layer) {
 			for (var i in layers) {
 				var value = layers[i];
 				var class_extra = '';
-				if(value.composition === 'source-atop'){
+				if (value.composition === 'source-atop') {
 					class_extra += ' shorter';
 				}
-				if (value.id == config.layer.id){
+				if (value.id == config.layer.id) {
 					class_extra += ' active';
 				}
 
@@ -159,13 +159,13 @@ class GUI_layers_class {
 				else
 					html += '	<button class="visibility trn" id="visibility" data-id="' + value.id + '" title="Show"></button>';
 				html += '	<button class="delete trn" id="delete" data-id="' + value.id + '" title="Delete"></button>';
-				
-				if(value.composition === 'source-atop'){
+
+				if (value.composition === 'source-atop') {
 					html += '	<button class="arrow_down" data-id="' + value.id + '" ></button>';
 				}
 
 				var layer_title = this.Helper.escapeHtml(value.name);
-				
+
 				html += '	<button class="layer_name" id="layer_name" data-id="' + value.id + '">' + layer_title + '</button>';
 				html += '	<div class="clear"></div>';
 				html += '</div>';

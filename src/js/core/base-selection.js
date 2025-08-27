@@ -1,5 +1,5 @@
 /*
- * miniPaint - https://github.com/viliusle/miniPaint
+ * miniPaint - https://github.com/afetmin/free-online-ps
  * author: Vilius L.
  */
 
@@ -61,7 +61,7 @@ class Base_selection_class {
 	events() {
 		document.addEventListener('mousedown', (e) => {
 			this.is_drag = false;
-			if(this.is_touch == true)
+			if (this.is_touch == true)
 				return;
 			if (!e.target.closest('#main_wrapper'))
 				return;
@@ -69,12 +69,12 @@ class Base_selection_class {
 			this.selected_object_actions(e);
 		});
 		document.addEventListener('mousemove', (e) => {
-			if(this.is_touch == true)
+			if (this.is_touch == true)
 				return;
 			this.selected_object_actions(e);
 		});
 		document.addEventListener('mouseup', (e) => {
-			if(this.is_touch == true)
+			if (this.is_touch == true)
 				return;
 			this.selected_object_actions(e);
 		});
@@ -90,7 +90,7 @@ class Base_selection_class {
 		});
 		document.addEventListener('touchmove', (event) => {
 			this.selected_object_actions(event);
-		}, {passive: false});
+		}, { passive: false });
 		document.addEventListener('touchend', (event) => {
 			this.selected_object_actions(event);
 		});
@@ -150,10 +150,10 @@ class Base_selection_class {
 
 	calcRotateDistanceFromX(layerW) {
 		const block_size = handle_size / config.ZOOM;
-	
+
 		return Math.max(
-		  Math.min(layerW * 0.9, Math.abs(layerW - 2 * block_size)),
-		  layerW / 2 - block_size / 2
+			Math.min(layerW * 0.9, Math.abs(layerW - 2 * block_size)),
+			layerW / 2 - block_size / 2
 		);
 	}
 	/**
@@ -222,9 +222,9 @@ class Base_selection_class {
 		}
 
 		//show crop lines
-		if(settings.crop_lines === true){
+		if (settings.crop_lines === true) {
 
-			for(var part = 1; part < 3; part++) {
+			for (var part = 1; part < 3; part++) {
 				this.ctx.lineWidth = wholeLineWidth;
 				this.ctx.strokeStyle = 'rgb(255, 255, 255)';
 				this.ctx.beginPath();
@@ -240,7 +240,7 @@ class Base_selection_class {
 				this.ctx.stroke();
 			}
 
-			for(var part = 1; part < 3; part++) {
+			for (var part = 1; part < 3; part++) {
 				this.ctx.lineWidth = wholeLineWidth;
 				this.ctx.strokeStyle = 'rgb(255, 255, 255)';
 				this.ctx.beginPath();
@@ -304,10 +304,10 @@ class Base_selection_class {
 				|| (settings.data.hide_selection_if_active === true && settings.data.type == config.TOOL.name)) {
 				return;
 			}
-			
+
 			var r_x = x + this.calcRotateDistanceFromX(w) + corner_offset + wholeLineWidth;
 			var r_y = y - corner_offset - wholeLineWidth;
-			var r_dx =  hitsRightEdge ? -0.5 : 0;
+			var r_dx = hitsRightEdge ? -0.5 : 0;
 			var r_dy = hitsTopEdge ? 0.5 : 0;
 
 			this.ctx.strokeStyle = "#000000";
@@ -360,7 +360,7 @@ class Base_selection_class {
 		var settings = this.find_settings();
 		var data = settings.data;
 
-		if(data == null){
+		if (data == null) {
 			return;
 		}
 
@@ -377,9 +377,9 @@ class Base_selection_class {
 
 		//simplify checks
 		var event_type = e.type;
-		if(event_type == 'touchstart') event_type = 'mousedown';
-		if(event_type == 'touchmove') event_type = 'mousemove';
-		if(event_type == 'touchend') event_type = 'mouseup';
+		if (event_type == 'touchstart') event_type = 'mousedown';
+		if (event_type == 'touchmove') event_type = 'mousemove';
+		if (event_type == 'touchend') event_type = 'mouseup';
 
 		if (!this.is_drag && ['mousedown', 'mouseup'].includes(event_type))
 			return;
@@ -396,7 +396,7 @@ class Base_selection_class {
 		var mouse = config.mouse;
 		const drag_type = this.selected_object_drag_type;
 
-		if(event_type == 'mousedown' && settings.data !== null){
+		if (event_type == 'mousedown' && settings.data !== null) {
 			this.click_details = {
 				x: settings.data.x,
 				y: settings.data.y,
@@ -411,7 +411,7 @@ class Base_selection_class {
 				&& ['line', 'arrow', 'gradient'].includes(settings.data.render_function[0]);
 
 			mainWrapper.style.cursor = "pointer";
-			
+
 			var is_ctrl = false;
 			if (e.ctrlKey == true || e.metaKey) {
 				is_ctrl = true;
@@ -422,16 +422,16 @@ class Base_selection_class {
 			const is_drag_type_top = Math.floor(drag_type / DRAG_TYPE_TOP) % 2 === 1;
 			const is_drag_type_bottom = Math.floor(drag_type / DRAG_TYPE_BOTTOM) % 2 === 1;
 
-			if(is_drag_type_left && is_drag_type_top) mainWrapper.style.cursor = "nwse-resize";
-			else if(is_drag_type_top && is_drag_type_right) mainWrapper.style.cursor = "nesw-resize";
-			else if(is_drag_type_right && is_drag_type_bottom) mainWrapper.style.cursor = "nwse-resize";
-			else if(is_drag_type_bottom && is_drag_type_left) mainWrapper.style.cursor = "nesw-resize";
-			else if(is_drag_type_top) mainWrapper.style.cursor = "ns-resize";
-			else if(is_drag_type_right) mainWrapper.style.cursor = "ew-resize";
-			else if(is_drag_type_bottom) mainWrapper.style.cursor = "ns-resize";
-			else if(is_drag_type_left) mainWrapper.style.cursor = "ew-resize";
+			if (is_drag_type_left && is_drag_type_top) mainWrapper.style.cursor = "nwse-resize";
+			else if (is_drag_type_top && is_drag_type_right) mainWrapper.style.cursor = "nesw-resize";
+			else if (is_drag_type_right && is_drag_type_bottom) mainWrapper.style.cursor = "nwse-resize";
+			else if (is_drag_type_bottom && is_drag_type_left) mainWrapper.style.cursor = "nesw-resize";
+			else if (is_drag_type_top) mainWrapper.style.cursor = "ns-resize";
+			else if (is_drag_type_right) mainWrapper.style.cursor = "ew-resize";
+			else if (is_drag_type_bottom) mainWrapper.style.cursor = "ns-resize";
+			else if (is_drag_type_left) mainWrapper.style.cursor = "ew-resize";
 
-			if(drag_type == 'rotate'){
+			if (drag_type == 'rotate') {
 				//rotate
 				var dx = x + this.calcRotateDistanceFromX(w) - (x + w / 2);
 				var dy = h / 2;
@@ -458,8 +458,8 @@ class Base_selection_class {
 					width = this.click_details.width - dx;
 
 				// Keep ratio - (if drag_type power of 2, only dragging on single axis)
-				if (drag_type && (drag_type & (drag_type - 1)) !== 0 && (settings.keep_ratio == true && is_ctrl == false) 
-					|| (settings.keep_ratio !== true && is_ctrl == true)){
+				if (drag_type && (drag_type & (drag_type - 1)) !== 0 && (settings.keep_ratio == true && is_ctrl == false)
+					|| (settings.keep_ratio !== true && is_ctrl == true)) {
 					var ratio = this.click_details.width / this.click_details.height;
 					var width_new = Math.round(height * ratio);
 					var height_new = Math.round(width / ratio);
@@ -514,7 +514,7 @@ class Base_selection_class {
 
 		if (!this.mouse_lock) {
 			//set mouse move cursor
-			if(settings.enable_move && mouse.x > x &&  mouse.x < x + w && mouse.y > y &&  mouse.y < y + h){
+			if (settings.enable_move && mouse.x > x && mouse.x < x + w && mouse.y > y && mouse.y < y + h) {
 				mainWrapper.style.cursor = "move";
 			}
 
